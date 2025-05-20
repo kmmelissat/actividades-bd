@@ -15,7 +15,7 @@ import { ProductsModule } from './products/products.module';
       password: '',
       database: 'clase6',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, 
+      synchronize: true,
     }),
     CommentsModule,
     ProductsModule,
