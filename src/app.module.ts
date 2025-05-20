@@ -10,10 +10,10 @@ import { AppService } from './app.service';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'postgres',
-      database: 'actividades',
+      password: '',
+      database: 'clase6',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Set to false in production
+      synchronize: true, 
     }),
   ],
   controllers: [AppController],
