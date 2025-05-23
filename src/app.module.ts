@@ -6,6 +6,8 @@ import { ReservationsModule } from './reservations/reservations.module';
 import { CustomersModule } from './customers/customers.module';
 import { CustomerEntity } from './customers/customer.entity';
 import { ReservationEntity } from './reservations/reservation.entity';
+import { CommentsModule } from './comments/comments.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -14,14 +16,14 @@ import { ReservationEntity } from './reservations/reservation.entity';
       host: 'localhost',
       port: 5433,
       username: 'postgres',
-      password: 'suser',
-      database: 'clase6',
       entities: [CustomerEntity, ReservationEntity],
       synchronize: true,
       
-    }),
     CustomersModule, 
     ReservationsModule
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+    CommentsModule,
+    ProductsModule,
   ],
 })
 export class AppModule {}
