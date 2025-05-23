@@ -3,8 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { OrdersModule } from './orders/orders.module';
-import { ProductsModule } from './products/products.module';
 import { ClientsModule } from './clients/clients.module';
+import { ItemsModule } from './items/items.module';
 
 @Module({
   imports: [
@@ -20,7 +20,7 @@ import { ClientsModule } from './clients/clients.module';
     }),
     OrdersModule,
     ClientsModule,
-    ProductsModule,
+    ItemsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -2,7 +2,7 @@ import { Order } from "src/orders/entity/order.entity";
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Product {
+export class Item {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -12,6 +12,6 @@ export class Product {
   @Column('float')
   precio: number;
 
-  @ManyToMany(() => Order, order => order.products)
+  @ManyToMany(() => Order, order => order.items)
   orders: Order[];
 }

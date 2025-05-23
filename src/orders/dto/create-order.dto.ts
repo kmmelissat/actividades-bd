@@ -9,5 +9,5 @@ export class CreateOrderDto{
     @IsPositive({ each: true })
     @IsArray()
     @ArrayMinSize(1, { message: 'Debes agregar al menos un producto' })
-    productosIds: number[];
+    itemsIds: number[];
 }

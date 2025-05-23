@@ -15,7 +15,7 @@ export class OrdersController {
     const orders = await this.ordersService.findAll();
     return orders.map(order => ({
       ...order,
-      total: order.products.reduce((sum, p) => sum + p.precio, 0),
+      total: order.items.reduce((sum, p) => sum + p.precio, 0),
     }));
   }
 
@@ -24,7 +24,7 @@ export class OrdersController {
     const orders = await this.ordersService.findByClientId(id);
     return orders.map(order => ({
       ...order,
-      total: order.products.reduce((sum, p) => sum + p.precio, 0),
+      total: order.items.reduce((sum, p) => sum + p.precio, 0),
     }));
   }
 }

@@ -1,5 +1,5 @@
 import { Client } from "src/clients/entities/client.entity";
-import { Product } from "src/products/entities/product.entity";
+import { Item } from "src/items/entities/item.entity";
 import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -10,9 +10,9 @@ export class Order{
     @ManyToOne(() => Client, client => client.orders)
     client: Client;
 
-    @ManyToMany(() => Product)
+    @ManyToMany(() => Item)
     @JoinTable()
-    products: Product[];
+    items: Item[];
 
     @CreateDateColumn()
     fechaCreacion: Date;
