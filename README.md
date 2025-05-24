@@ -293,11 +293,6 @@ curl -X POST http://localhost:8000/comments \
 ```
 src/
 ├── 📁 merch/                 # Ejercicio 1 - Productos
-│   ├── entities/
-│   ├── dto/
-│   ├── merch.controller.ts
-│   ├── merch.service.ts
-│   └── merch.module.ts
 ├── 📁 orders/                # Ejercicio 1A - Órdenes
 ├── 📁 clientes/              # Ejercicio 2 - Clientes únicos
 ├── 📁 reservations/          # Ejercicio 2A - Reservas
