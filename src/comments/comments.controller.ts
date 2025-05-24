@@ -17,7 +17,7 @@ import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { Comment } from './entities/comment.entity';
 
-@ApiTags('comments')
+@ApiTags('Ejercicio 3A - Comments')
 @Controller('comments')
 export class CommentsController {
   constructor(private readonly commentsService: CommentsService) {}

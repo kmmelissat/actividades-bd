@@ -14,18 +14,32 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Actividades BD API')
     .setDescription(
-      'API para los ejercicios de Base de Datos - Sistema completo con validaciones',
+      'API para los ejercicios de Base de Datos - Organizados por ejercicio',
     )
     .setVersion('1.0')
-    .addTag('merch', 'Gestión de productos/mercancía')
-    .addTag('comments', 'Sistema de comentarios con puntuación')
-    .addTag('reservations', 'Sistema de reservas con validaciones de fecha')
-    .addTag('orders', 'Sistema de órdenes con clientes y productos')
-    .addTag('clientes', 'Registro de clientes únicos')
-    .addTag('customers', 'Gestión de customers')
-    .addTag('clients', 'Gestión de clients')
-    .addTag('products', 'Gestión de productos')
-    .addTag('items', 'Gestión de items')
+    .addTag(
+      'Ejercicio 1 - Merch',
+      '🛍️ Registro de productos con validación (nombre, precio > 0, stock entero positivo)',
+    )
+    .addTag(
+      'Ejercicio 1A - Orders',
+      '📦 Sistema de órdenes con clientes y productos (ManyToMany, validar al menos 1 producto)',
+    )
+    .addTag(
+      'Ejercicio 2 - Clientes',
+      '👤 Registro de clientes únicos (email único y formato correcto, nombre no vacío)',
+    )
+    .addTag(
+      'Ejercicio 2A - Reservas',
+      '📅 Reservas con validaciones de fecha (fecha fin > inicio, sin solapamiento)',
+    )
+    .addTag(
+      'Ejercicio 3A - Comments',
+      '⭐ Comentarios con puntuación (relacionado con Product, rating 1-5, max 200 chars)',
+    )
+    .addTag('Support - Products', '📱 Entidades de soporte para comentarios')
+    .addTag('Support - Customers', '🧑‍🤝‍🧑 Entidades de soporte para reservas')
+    .addTag('Support - Clients/Items', '🔧 Entidades de soporte para órdenes')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

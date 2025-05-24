@@ -46,24 +46,5 @@ export class MerchService {
     }
   }
 
-  async findByPriceRange(minPrice: number, maxPrice: number): Promise<Merch[]> {
-    if (minPrice < 0 || maxPrice < 0 || minPrice > maxPrice) {
-      throw new BadRequestException('Rango de precios inválido');
-    }
 
-    return this.merchRepository
-      .createQueryBuilder('merch')
-      .where('merch.precio >= :minPrice AND merch.precio <= :maxPrice', {
-        minPrice,
-        maxPrice,
-      })
-      .getMany();
-  }
-
-  async findInStock(): Promise<Merch[]> {
-    return this.merchRepository
-      .createQueryBuilder('merch')
-      .where('merch.stock > 0')
-      .getMany();
-  }
 }

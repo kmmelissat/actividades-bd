@@ -10,7 +10,9 @@ import {
 } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { CustomerEntity } from './entities/customer.entity';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Support - Customers')
 @Controller('customers')
 export class CustomersController {
   constructor(private readonly customersService: CustomersService) {}

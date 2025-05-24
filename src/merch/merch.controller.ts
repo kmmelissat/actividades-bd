@@ -7,8 +7,7 @@ import {
   Param,
   Delete,
   ParseIntPipe,
-  Query,
-  ParseFloatPipe,
+
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -17,7 +16,7 @@ import {
   ApiOperation,
   ApiResponse,
   ApiParam,
-  ApiQuery,
+
   ApiBody,
 } from '@nestjs/swagger';
 import { MerchService } from './merch.service';
@@ -25,7 +24,7 @@ import { CreateMerchDto } from './dto/create-merch.dto';
 import { UpdateMerchDto } from './dto/update-merch.dto';
 import { Merch } from './entities/merch.entity';
 
-@ApiTags('merch')
+@ApiTags('Ejercicio 1 - Merch')
 @Controller('merch')
 export class MerchController {
   constructor(private readonly merchService: MerchService) {}
@@ -55,33 +54,7 @@ export class MerchController {
     return this.merchService.findAll();
   }
 
-  @Get('in-stock')
-  @ApiOperation({ summary: 'Obtener productos en stock' })
-  @ApiResponse({
-    status: 200,
-    description: 'Productos con stock > 0',
-    type: [Merch],
-  })
-  findInStock(): Promise<Merch[]> {
-    return this.merchService.findInStock();
-  }
 
-  @Get('price-range')
-  @ApiOperation({ summary: 'Buscar productos por rango de precio' })
-  @ApiQuery({ name: 'min', description: 'Precio mínimo' })
-  @ApiQuery({ name: 'max', description: 'Precio máximo' })
-  @ApiResponse({
-    status: 200,
-    description: 'Productos en el rango de precio',
-    type: [Merch],
-  })
-  @ApiResponse({ status: 400, description: 'Rango de precios inválido' })
-  findByPriceRange(
-    @Query('min', ParseFloatPipe) min: number,
-    @Query('max', ParseFloatPipe) max: number,
-  ): Promise<Merch[]> {
-    return this.merchService.findByPriceRange(min, max);
-  }
 
   @Get(':id')
   @ApiOperation({ summary: 'Obtener producto por ID' })

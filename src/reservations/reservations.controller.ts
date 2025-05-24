@@ -16,7 +16,7 @@ import {
   ApiBody,
 } from '@nestjs/swagger';
 
-@ApiTags('reservations')
+@ApiTags('Ejercicio 2A - Reservas')
 @Controller('reservations')
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}
