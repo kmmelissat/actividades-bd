@@ -4,6 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import { Cliente } from './clientes/cliente.entity';
+import { ClientesModule } from './clientes/clientes.module';
+
 import { OrdersModule } from './orders/orders.module';
 import { ClientsModule } from './clients/clients.module';
 import { ItemsModule } from './items/items.module';
@@ -18,12 +21,16 @@ import { ProductsModule } from './products/products.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 5433,
+      port: 5432,
       username: 'postgres',
-      // password: 'your_db_password', // <-- add if needed
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      password: '',
+      database: 'registro',
+      entities: [Cliente, __dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
+      logging: true,
     }),
+    // your feature modules
+    ClientesModule,
     OrdersModule,
     ClientsModule,
     ItemsModule,
