@@ -8,9 +8,7 @@ Una API REST robusta construida con NestJS que implementa múltiples ejercicios 
 
 ## 📋 Tabla de Contenidos
 
-- [🚀 Características](#-características)
 - [📖 Ejercicios Implementados](#-ejercicios-implementados)
-- [🛠️ Tecnologías](#️-tecnologías)
 - [⚡ Instalación y Configuración](#-instalación-y-configuración)
 - [🗄️ Configuración de Base de Datos](#️-configuración-de-base-de-datos)
 - [📚 Documentación API](#-documentación-api)
@@ -20,17 +18,6 @@ Una API REST robusta construida con NestJS que implementa múltiples ejercicios 
 
 ---
 
-## 🚀 Características
-
-✅ **Validaciones Avanzadas** - Validación de datos con class-validator  
-✅ **Relaciones Complejas** - OneToMany, ManyToMany, ManyToOne  
-✅ **Documentación Swagger** - API interactiva y documentada  
-✅ **TypeORM** - ORM moderno con soporte PostgreSQL  
-✅ **Manejo de Errores** - Respuestas de error consistentes  
-✅ **Arquitectura Modular** - Código organizado por módulos  
-✅ **Hot Reload** - Desarrollo eficiente con recarga automática
-
----
 
 ## 📖 Ejercicios Implementados
 
@@ -115,19 +102,6 @@ Una API REST robusta construida con NestJS que implementa múltiples ejercicios 
 - `POST /comments` - Crear comentario
 - `GET /comments` - Listar comentarios con productos
 - `GET /comments/:id` - Obtener comentario
-
----
-
-## 🛠️ Tecnologías
-
-| Tecnología          | Versión | Propósito           |
-| ------------------- | ------- | ------------------- |
-| **NestJS**          | ^10.0.0 | Framework backend   |
-| **TypeORM**         | ^0.3.17 | ORM para PostgreSQL |
-| **PostgreSQL**      | ^15     | Base de datos       |
-| **class-validator** | ^0.14.0 | Validación de DTOs  |
-| **Swagger**         | ^7.1.0  | Documentación API   |
-| **TypeScript**      | ^5.1.3  | Lenguaje tipado     |
 
 ---
 
@@ -385,55 +359,3 @@ src/
 | GET    | `/comments`     | Listar comentarios |
 | GET    | `/comments/:id` | Obtener comentario |
 
----
-
-## 🎯 **Características Técnicas Destacadas**
-
-### 🔒 **Validaciones Robustas**
-
-- Validación a nivel de DTO y entidad
-- Manejo de errores personalizados
-- Validación de relaciones entre entidades
-
-### 🗄️ **Diseño de Base de Datos**
-
-- Relaciones bien definidas
-- Índices únicos para emails
-- Constraints de integridad referencial
-
-### 📖 **Documentación Completa**
-
-- Swagger interactivo
-- Ejemplos de request/response
-- Códigos de error documentados
-
-### 🏗️ **Arquitectura Escalable**
-
-- Separación por módulos
-- DTOs para transferencia de datos
-- Servicios reutilizables
-
----
-
-## 🚀 **¡Empezar a Usar!**
-
-1. **Instalar y configurar** siguiendo la sección de instalación
-2. **Explorar la API** en http://localhost:8000/api
-3. **Probar los ejercicios** con los ejemplos de testing
-4. **Verificar las validaciones** intentando datos inválidos
-
-**¡Disfruta explorando los ejercicios de bases de datos!** 🎉
-
----
-
-## 📞 **Soporte**
-
-Para preguntas o issues:
-
-- 📖 Consultar la documentación Swagger
-- 🧪 Probar ejemplos en la documentación interactiva
-- 📋 Revisar logs de la aplicación para debugging
-
----
-
-_Proyecto desarrollado con ❤️ usando NestJS y TypeORM_
