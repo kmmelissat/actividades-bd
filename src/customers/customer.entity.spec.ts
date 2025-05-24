@@ -1,4 +1,4 @@
-import { CustomerEntity } from './customer.entity';
+import { CustomerEntity } from './entities/customer.entity';
 
 describe('CustomerEntity', () => {
   it('should be defined', () => {

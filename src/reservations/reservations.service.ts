@@ -1,7 +1,7 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ReservationEntity } from './entities/reservation.entity';
-import { CustomerEntity } from 'src/customers/customer.entity';
+import { CustomerEntity } from 'src/customers/entities/customer.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

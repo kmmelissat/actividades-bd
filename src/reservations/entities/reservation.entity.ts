@@ -1,4 +1,4 @@
-import { CustomerEntity } from "src/customers/customer.entity";
+import { CustomerEntity } from "src/customers/entities/customer.entity";
 import { BeforeInsert, BeforeUpdate, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()

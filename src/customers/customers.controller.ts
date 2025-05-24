@@ -9,7 +9,7 @@ import {
   Put 
 } from '@nestjs/common';
 import { CustomersService } from './customers.service';
-import { CustomerEntity } from './customer.entity';
+import { CustomerEntity } from './entities/customer.entity';
 
 @Controller('customers')
 export class CustomersController {
