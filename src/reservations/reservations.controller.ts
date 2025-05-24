@@ -1,17 +1,27 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 import { ReservationsService } from './reservations.service';
-import { ReservationEntity } from './reservation.entity';
+import { ReservationEntity } from './entities/reservation.entity';
 
 @Controller('reservations')
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}
 
   @Post()
-  create(@Body() reservationData: {
-    startDate: Date;
-    endDate: Date;
-    customerId: number;
-  }): Promise<ReservationEntity> {
+  create(
+    @Body()
+    reservationData: {
+      startDate: Date;
+      endDate: Date;
+      customerId: number;
+    },
+  ): Promise<ReservationEntity> {
     return this.reservationsService.createReservation(reservationData);
   }
 
@@ -21,12 +31,16 @@ export class ReservationsController {
   }
 
   @Get('reservation/:reservationId')
-  findOne(@Param('reservationId', ParseIntPipe) id: number): Promise<ReservationEntity> {
+  findOne(
+    @Param('reservationId', ParseIntPipe) id: number,
+  ): Promise<ReservationEntity> {
     return this.reservationsService.findOne(id);
   }
 
   @Get('customer/:customerId')
-  findByCliente(@Param('customerId', ParseIntPipe) customerId: number): Promise<ReservationEntity[]> {
+  findByCliente(
+    @Param('customerId', ParseIntPipe) customerId: number,
+  ): Promise<ReservationEntity[]> {
     return this.reservationsService.findByCustomer(customerId);
   }
 }

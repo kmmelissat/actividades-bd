@@ -24,7 +24,7 @@ import { ProductsModule } from './products/products.module';
       port: 5432,
       username: 'postgres',
       password: '',
-      database: 'registro',
+      database: 'clase6',
       entities: [Cliente, __dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       logging: true,
