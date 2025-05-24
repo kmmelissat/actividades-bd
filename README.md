@@ -4,6 +4,14 @@
 
 Una API REST robusta construida con NestJS que implementa múltiples ejercicios de bases de datos relacionales con validaciones complejas, relaciones entre entidades y documentación interactiva con Swagger.
 
+## 👥 **Desarrollado por:**
+
+- **Diego Leonel Cabezas Pineda**
+- **Julio César Contreras Cañas**
+- **Rene Alejandro Morataya Platero**
+- **Christian Alejandro Sánchez Herrera**
+- **Karla Melissa Torres Solórzano**
+
 ---
 
 ## 📋 Tabla de Contenidos
@@ -17,7 +25,6 @@ Una API REST robusta construida con NestJS que implementa múltiples ejercicios 
 - [🔗 Endpoints](#-endpoints)
 
 ---
-
 
 ## 📖 Ejercicios Implementados
 
@@ -353,4 +360,3 @@ src/
 | POST   | `/comments`     | Crear comentario   |
 | GET    | `/comments`     | Listar comentarios |
 | GET    | `/comments/:id` | Obtener comentario |
-
