@@ -15,6 +15,7 @@ import { ReservationsModule } from './reservations/reservations.module';
 import { CustomersModule } from './customers/customers.module';
 import { CommentsModule } from './comments/comments.module';
 import { ProductsModule } from './products/products.module';
+import { MerchModule } from './merch/merch.module';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { ProductsModule } from './products/products.module';
       synchronize: true,
       logging: true,
     }),
-    // your feature modules
+
     ClientesModule,
     OrdersModule,
     ClientsModule,
@@ -38,6 +39,7 @@ import { ProductsModule } from './products/products.module';
     CustomersModule,
     CommentsModule,
     ProductsModule,
+    MerchModule,
   ],
   controllers: [AppController],
   providers: [AppService],
