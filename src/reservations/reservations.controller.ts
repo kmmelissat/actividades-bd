@@ -8,7 +8,15 @@ import {
 } from '@nestjs/common';
 import { ReservationsService } from './reservations.service';
 import { ReservationEntity } from './entities/reservation.entity';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiBody,
+} from '@nestjs/swagger';
 
+@ApiTags('reservations')
 @Controller('reservations')
 export class ReservationsController {
   constructor(private readonly reservationsService: ReservationsService) {}

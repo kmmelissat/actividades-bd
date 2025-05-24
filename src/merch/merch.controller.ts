@@ -12,32 +12,70 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiQuery,
+  ApiBody,
+} from '@nestjs/swagger';
 import { MerchService } from './merch.service';
 import { CreateMerchDto } from './dto/create-merch.dto';
 import { UpdateMerchDto } from './dto/update-merch.dto';
 import { Merch } from './entities/merch.entity';
 
+@ApiTags('merch')
 @Controller('merch')
 export class MerchController {
   constructor(private readonly merchService: MerchService) {}
 
   @Post()
+  @ApiOperation({ summary: 'Crear nuevo producto de mercancía' })
+  @ApiBody({ type: CreateMerchDto })
+  @ApiResponse({
+    status: 201,
+    description: 'Producto creado exitosamente',
+    type: Merch,
+  })
+  @ApiResponse({ status: 400, description: 'Datos inválidos' })
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   create(@Body() createMerchDto: CreateMerchDto): Promise<Merch> {
     return this.merchService.create(createMerchDto);
   }
 
   @Get()
+  @ApiOperation({ summary: 'Obtener todos los productos' })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista de productos',
+    type: [Merch],
+  })
   findAll(): Promise<Merch[]> {
     return this.merchService.findAll();
   }
 
   @Get('in-stock')
+  @ApiOperation({ summary: 'Obtener productos en stock' })
+  @ApiResponse({
+    status: 200,
+    description: 'Productos con stock > 0',
+    type: [Merch],
+  })
   findInStock(): Promise<Merch[]> {
     return this.merchService.findInStock();
   }
 
   @Get('price-range')
+  @ApiOperation({ summary: 'Buscar productos por rango de precio' })
+  @ApiQuery({ name: 'min', description: 'Precio mínimo' })
+  @ApiQuery({ name: 'max', description: 'Precio máximo' })
+  @ApiResponse({
+    status: 200,
+    description: 'Productos en el rango de precio',
+    type: [Merch],
+  })
+  @ApiResponse({ status: 400, description: 'Rango de precios inválido' })
   findByPriceRange(
     @Query('min', ParseFloatPipe) min: number,
     @Query('max', ParseFloatPipe) max: number,
@@ -46,11 +84,25 @@ export class MerchController {
   }
 
   @Get(':id')
+  @ApiOperation({ summary: 'Obtener producto por ID' })
+  @ApiParam({ name: 'id', description: 'ID del producto' })
+  @ApiResponse({ status: 200, description: 'Producto encontrado', type: Merch })
+  @ApiResponse({ status: 404, description: 'Producto no encontrado' })
   findOne(@Param('id', ParseIntPipe) id: number): Promise<Merch> {
     return this.merchService.findOne(id);
   }
 
   @Patch(':id')
+  @ApiOperation({ summary: 'Actualizar producto' })
+  @ApiParam({ name: 'id', description: 'ID del producto' })
+  @ApiBody({ type: UpdateMerchDto })
+  @ApiResponse({
+    status: 200,
+    description: 'Producto actualizado exitosamente',
+    type: Merch,
+  })
+  @ApiResponse({ status: 404, description: 'Producto no encontrado' })
+  @ApiResponse({ status: 400, description: 'Datos inválidos' })
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   update(
     @Param('id', ParseIntPipe) id: number,
@@ -60,6 +112,10 @@ export class MerchController {
   }
 
   @Delete(':id')
+  @ApiOperation({ summary: 'Eliminar producto' })
+  @ApiParam({ name: 'id', description: 'ID del producto' })
+  @ApiResponse({ status: 200, description: 'Producto eliminado exitosamente' })
+  @ApiResponse({ status: 404, description: 'Producto no encontrado' })
   remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.merchService.remove(id);
   }
